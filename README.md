@@ -30,3 +30,4 @@ Intent intent = new Intent(CurrentActivity.this, FinalActivity.class);
 startActivity(intent);
 finish();
 ```
+![Screen Record](images/step_3_1.gif)
