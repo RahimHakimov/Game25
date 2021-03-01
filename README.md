@@ -18,3 +18,15 @@ There will be `"Back"` button for quitting the game. `"Restart"` button to shuff
 We have write Main Activities XML file. You can see the source code in `activity_main.xml` file.
 #### Game Page XML
 We have write Game Page XML file. You can see the source code in `game.xml` file.
+### Step 3. Coding
+#### MainActivity & Game
+I have added functionality to the two buttons:
+1. Button `Start` in **MainActivity**
+2. Button `Back` in **Game**
+
+You must write code below to jump from `CurrentActivity` to `FinalActivity`:
+```
+Intent intent = new Intent(CurrentActivity.this, FinalActivity.class);
+startActivity(intent);
+finish();
+```
