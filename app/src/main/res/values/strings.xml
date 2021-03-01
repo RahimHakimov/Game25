@@ -3,4 +3,7 @@
     <string name="record">Record: --:--:--</string>
     <string name="logo">25</string>
     <string name="start">Start</string>
+    <string name="score">Time:</string>
+    <string name="back">Back</string>
+    <string name="restart">Restart</string>
 </resources>

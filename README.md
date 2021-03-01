@@ -16,3 +16,5 @@ There will be `"Back"` button for quitting the game. `"Restart"` button to shuff
 ### Step 2. Creating an XML files.
 #### Main Activity XML
 We have write Main Activities XML file. You can see the source code in `activity_main.xml` file.
+#### Game Page XML
+We have write Game Page XML file. You can see the source code in `game.xml` file.
