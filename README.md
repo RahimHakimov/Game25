@@ -33,4 +33,7 @@ finish();
 ```
 <img src="images/step_3_1.gif" width="320" height="540"/>
 
+#### Method init() in Game.class
+I have added the functionality to `Restart` button in **Game**. And now you can play the game.
 
+<img src="images/step_3_2.gif" width="320" height="540"/>
