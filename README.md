@@ -37,3 +37,8 @@ finish();
 I have added the functionality to `Restart` button in **Game**. And now you can play the game.
 
 <img src="images/step_3_2.gif" width="320" height="540"/>
+
+#### Adding StopWatch
+Finally added StopWatch:
+
+<img src="images/step_3_3.gif" width="320" height="540"/>
