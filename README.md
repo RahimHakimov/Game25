@@ -42,3 +42,12 @@ I have added the functionality to `Restart` button in **Game**. And now you can 
 Finally added StopWatch:
 
 <img src="images/step_3_3.gif" width="320" height="540"/>
+
+#### On Back Pressed
+##### Before:
+
+<img src="images/before.gif" width="320" height="540"/>
+
+##### After:
+
+<img src="images/after.gif" width="320" height="540"/>

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -168,4 +169,16 @@ public class Game extends AppCompatActivity {
         }
 
     };
+
+    @Override
+    public void onBackPressed() {
+        try {
+            Intent intent = new Intent(Game.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+
+        } catch (Exception e) {
+
+        }
+    }
 }
