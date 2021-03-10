@@ -64,3 +64,8 @@ Finally added StopWatch:
 ##### Record #2:
 
 <img src="images/03.png" width="320" height="540"/>
+
+### Step 4. Adding icon
+Adding Image asset as icon. The name of our app is Game25.
+
+<img src="images/icon.png" width="320" height="540"/>
