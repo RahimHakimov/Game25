@@ -3,6 +3,7 @@ package hakimov.app.game25;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -25,6 +26,66 @@ public class Game extends AppCompatActivity {
     long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L;
     Handler handler;
     int Seconds, Minutes, MilliSeconds;
+    SharedPreferences save;
+    int Minutes_;
+    int Seconds_;
+    int MilliSeconds_;
+
+    @SuppressLint("DefaultLocale")
+    private void newRecord() {
+        SharedPreferences.Editor editor = save.edit();
+        editor.putInt("Minutes", Minutes);
+        editor.putInt("Seconds", Seconds);
+        editor.putInt("MilliSeconds", MilliSeconds);
+        editor.putBoolean("isAnyRecord", true);
+        editor.apply();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.congratulations);
+        builder.setMessage(getResources().getString(R.string.new_high_score) + String.format(" %02d:%02d:%02d", Minutes, Seconds, MilliSeconds));
+        builder.setPositiveButton(R.string.restart, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                init();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.home, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Game.this, MainActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+                finish();
+            }
+        });
+        builder.show();
+
+    }
+
+    @SuppressLint("DefaultLocale")
+    private void success() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.congratulations);
+        builder.setMessage(getResources().getString(R.string.score) + String.format(" %02d:%02d:%02d", Minutes, Seconds, MilliSeconds));
+        builder.setPositiveButton(R.string.restart, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                init();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.home, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Game.this, MainActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+                finish();
+            }
+        });
+        builder.show();
+    }
 
     @SuppressLint("SetTextI18n")
     private void init() {
@@ -73,6 +134,10 @@ public class Game extends AppCompatActivity {
         textViews.add(findViewById(R.id.textView24));
         textViews.add(findViewById(R.id.textView25));
 
+        Minutes_ = save.getInt("Minutes", Integer.MAX_VALUE);
+        Seconds_ = save.getInt("Seconds", Integer.MAX_VALUE);
+        MilliSeconds_ = save.getInt("MilliSeconds", Integer.MAX_VALUE);
+
         running = false;
 
         for (int i = 0; i < 25; ++i) {
@@ -97,6 +162,13 @@ public class Game extends AppCompatActivity {
                                 running = false;
                                 //SUCCESS
                                 handler.removeCallbacks(runnable);
+                                if ((Minutes < Minutes_) ||
+                                        (Minutes == Minutes_ && Seconds < Seconds_) ||
+                                        (Minutes == Minutes_ && Seconds == Seconds_ && MilliSeconds < MilliSeconds_)) {
+                                    newRecord();
+                                } else {
+                                    success();
+                                }
                             }
                         }
                     } catch (Exception e) {
@@ -113,6 +185,8 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.game);
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        save = getSharedPreferences("Save", MODE_PRIVATE);
 
         handler = new Handler();
         stopwatch = findViewById(R.id.score);

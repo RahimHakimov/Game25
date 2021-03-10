@@ -51,3 +51,16 @@ Finally added StopWatch:
 ##### After:
 
 <img src="images/after.gif" width="320" height="540"/>
+
+#### Keeping Record and Adding AlertDialog if win
+##### Record #1:
+
+<img src="images/01.png" width="320" height="540"/>
+
+##### AlertDialog:
+
+<img src="images/02.png" width="320" height="540"/>
+
+##### Record #2:
+
+<img src="images/03.png" width="320" height="540"/>

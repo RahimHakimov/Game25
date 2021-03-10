@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Game25</string>
-    <string name="record">Record: --:--:--</string>
+    <string name="record">Record:</string>
     <string name="logo">25</string>
     <string name="start">Start</string>
     <string name="score">Time:</string>
     <string name="back">Back</string>
     <string name="restart">Restart</string>
     <string name="close">Press again to close</string>
+    <string name="congratulations">My Congratulations!</string>
+    <string name="new_high_score">New Record:</string>
+    <string name="home">Home</string>
 </resources>
